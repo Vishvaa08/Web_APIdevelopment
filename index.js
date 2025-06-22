@@ -14,6 +14,10 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error(err));
 
+app.get('/', (req, res) => {
+  res.send('Weather API is running. Use /api/cities or /api/weather/:city');
+});
+
 // GET cities with optional filters: ?search=lon&sort=asc
 app.get('/api/cities', async (req, res) => {
   const { search, sort } = req.query;
