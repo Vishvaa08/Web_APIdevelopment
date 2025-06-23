@@ -8,13 +8,16 @@ const City = require('./models/City');
 
 const app = express();
 app.use(express.json());
+const cors = require('cors');
+
 const corsOptions = {
-  origin: '*', // Allow all origins
-  methods: ['GET', 'POST', 'DELETE'],
+  origin: '*',
+  methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
 };
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // handle pre-flight for all routes
 
 
 mongoose.connect(process.env.MONGO_URI)

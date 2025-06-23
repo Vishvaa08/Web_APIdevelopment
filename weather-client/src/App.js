@@ -13,7 +13,7 @@ function App() {
 
   const fetchCities = async () => {
     try {
-      const res = await axios.get('http://web-apidevelopment.onrender.com/api/cities');
+      const res = await axios.get('https://web-apidevelopment.onrender.com/api/cities');
       setCities(res.data);
     } catch (err) {
       console.error('Error fetching cities', err);
@@ -23,7 +23,7 @@ function App() {
   const addCity = async () => {
     if (!cityName) return;
     try {
-      await axios.post('http://web-apidevelopment.onrender.com/api/cities', { name: cityName });
+      await axios.post('https://web-apidevelopment.onrender.com/api/cities', { name: cityName });
       setCityName('');
       fetchCities();
     } catch (err) {
@@ -33,7 +33,7 @@ function App() {
 
   const getWeather = async (name) => {
     try {
-      const res = await axios.get(`http://web-apidevelopment.onrender.com/api/weather/${name}`);
+      const res = await axios.get(`https://web-apidevelopment.onrender.com/api/weather/${name}`);
       setWeather(res.data);
     } catch (err) {
       console.error('Error fetching weather', err);
@@ -42,7 +42,7 @@ function App() {
 
   const deleteCity = async (id) => {
     try {
-      await axios.delete(`http://web-apidevelopment.onrender.com/api/cities/${id}`);
+      await axios.delete(`https://web-apidevelopment.onrender.com/api/cities/${id}`);
       fetchCities();
     } catch (err) {
       console.error('Error deleting city', err);
