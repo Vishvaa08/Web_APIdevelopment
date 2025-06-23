@@ -8,7 +8,14 @@ const City = require('./models/City');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
+
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
