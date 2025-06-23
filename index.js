@@ -8,7 +8,6 @@ const City = require('./models/City');
 
 const app = express();
 app.use(express.json());
-const cors = require('cors');
 
 const corsOptions = {
   origin: '*',
